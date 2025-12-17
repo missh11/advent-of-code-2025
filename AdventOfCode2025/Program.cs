@@ -12,5 +12,7 @@ class Program
         Day03.Day03Part2();
         Day04.Day04Part1();
         Day04.Day04Part2();
+        //Day05.Day05Part1();
+        Day05.Day05Part2();
     }
 }
