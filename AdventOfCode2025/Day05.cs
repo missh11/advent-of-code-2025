@@ -82,31 +82,24 @@ public class Day05
                     var newRange = new Range(startId, endId);
 
                     // iterate backwards because we may modify the list by removing Ranges
-                    if (freshIdRanges.Count == 0)
+                    for (int i = freshIdRanges.Count - 1; i >= 0; i--)
                     {
-                        freshIdRanges.Add(newRange);
-                    }
-                    else
-                    {
-                        for (int i = freshIdRanges.Count - 1; i >= 0; i--)
+                        var range = freshIdRanges[i];
+
+                        // newRange overlaps with a range we already have
+                        // remove the existing range from the list
+                        // update the new range and add to the list
+
+                        // https://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap/325964#325964
+                        if (Math.Max(newRange.Start, range.Start) <= Math.Min(newRange.End, range.End))
                         {
-                            var range = freshIdRanges[i];
+                            newRange.Start = Math.Min(newRange.Start, range.Start);
+                            newRange.End = Math.Max(newRange.End, range.End);
 
-                            // newRange overlaps with a range we already have
-                            // remove the existing range from the list
-                            // update the new range and add to the list
-
-                            // https://stackoverflow.com/questions/325933/determine-whether-two-date-ranges-overlap/325964#325964
-                            if (Math.Max(newRange.Start, range.Start) <= Math.Min(newRange.End, range.End))
-                            {
-                                newRange.Start = Math.Min(newRange.Start, range.Start);
-                                newRange.End = Math.Max(newRange.End, range.End);
-
-                                freshIdRanges.Remove(range);
-                            }
+                            freshIdRanges.Remove(range);
                         }
-                        freshIdRanges.Add(newRange);
                     }
+                    freshIdRanges.Add(newRange);
                 }
             }
             else
