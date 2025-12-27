@@ -102,10 +102,6 @@ public class Day05
                     freshIdRanges.Add(newRange);
                 }
             }
-            else
-            {
-                // do nothing with available ingredient IDs
-            }
         }
 
         long totalFreshIds = 0;
