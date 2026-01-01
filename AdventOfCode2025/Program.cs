@@ -16,7 +16,9 @@ class Program
         //Day05.Day05Part2();
         //Day06.Day06Part1();
         //Day06.Day06Part2();
-        Day07.Day07Part1();
-        Day07.Day07Part2();
+        //Day07.Day07Part1();
+        //Day07.Day07Part2();
+        Day08.Day08Part1();
+        Day08.Day08Part2();
     }
 }
